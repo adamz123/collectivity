@@ -11,13 +11,14 @@ Right now this is all the documentation I have.  To see an example of it in use,
 Both lib/twitter-search.js and lib/facebook-search.js require Twitter and Facebook app keys respectively in order to function.
 
 
-Things to do:
+Things to do
+------------
 
--Document the required npm modules in a package.json
--Allow for result limits to be tweaked without manual editing of the lib files
--Retrieve Facebook and Twitter keys from one file
--Add more documentation
-  -- regarding the objects returned by collectivity
-  -- regardging how to use it
-  -- regarding the keyword input object
--Create NPM module
+*Document the required npm modules in a package.json
+*Create NPM module
+*Allow for result limits to be tweaked without manual editing of the lib files
+*Retrieve Facebook and Twitter keys from one file
+*Add more documentation
+  1. regarding the objects returned by collectivity
+  2. regardging how to use it
+  3. regarding the keyword input object
