@@ -1,11 +1,16 @@
 var Collectivity = require('../lib/collectivity.js');
 
-var keywords = {
-    facebook:   [{keyword: 'recession', lastChecked: '1388099510000'}],
-    news:       [{keyword: 'recession', lastChecked: '1388099510000'}],
-    twitter:    [{keyword: 'recession', max_id: '0'}]
+var fbKeys = {
+    appId:      'YOUR APP ID',
+    appSecret:  'YOUR APP SECRET'
 };
 
+var twitterKeys = {
+    consumer_key:         'YOUR CONSUMER KEY',
+    consumer_secret:      'YOUR CONSUMER SECRET',
+    access_token:         'YOUR ACCESS TOKEN',
+    access_token_secret:  'YOUR ACCESS TOKEN SECRET'
+};
 
 var linksReturned = function(err, links) {
     if(err){
@@ -24,6 +29,6 @@ var keywordsReturned = function(type, keywords) {
 };
 
 
-var recessionCollectivity = new Collectivity(keywords);
+var recessionCollectivity = new Collectivity(keywords, fbKeys, twitterKeys);
 
 recessionCollectivity.aggregate(linksReturned, keywordsReturned);
