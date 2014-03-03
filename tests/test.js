@@ -12,6 +12,13 @@ var twitterKeys = {
     access_token_secret:  'YOUR ACCESS TOKEN SECRET'
 };
 
+var keywords = {
+    facebook:   [{keyword: 'recession', lastChecked: '1388099510000'}],
+    news:       [{keyword: 'recession', lastChecked: '1388099510000'}],
+    twitter:    [{keyword: 'recession', max_id: '0'}]
+};
+
+
 var linksReturned = function(err, links) {
     if(err){
         console.log('An error occurred:');
@@ -31,4 +38,4 @@ var keywordsReturned = function(type, keywords) {
 
 var recessionCollectivity = new Collectivity(keywords, fbKeys, twitterKeys);
 
-recessionCollectivity.aggregate(linksReturned, keywordsReturned);
+recessionCollectivity.aggregate(linksReturned, keywordsReturned, 10);
