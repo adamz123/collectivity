@@ -10,12 +10,21 @@ Right now this is all the documentation I have.  To see an example of it in use,
 
 Both lib/twitter-search.js and lib/facebook-search.js require Twitter and Facebook app keys respectively in order to function.
 
+Dependencies
+-------------
+
+Collectivity is dependent on the following npm modules:
+
+async
+cheerio
+fbgraph
+xml2js
+twit
 
 Things to do
 ------------
 
 * Create NPM module
-* Remove console.logs
 * Add more documentation
   1. regarding the objects returned by collectivity
   2. regardging how to use it
