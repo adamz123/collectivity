@@ -14,19 +14,14 @@ var twitterKeys = {
 
 var keywords = {
     facebook:   [{keyword: 'recession', lastChecked: '1388099510000'}],
-    news:       [{keyword: 'recession', lastChecked: '1388099510000'}],
+    googleNews: [{keyword: 'recession', lastChecked: '1388099510000'}],
     twitter:    [{keyword: 'recession', max_id: '0'}]
 };
 
 
-var linksReturned = function(err, links) {
-    if(err){
-        console.log('An error occurred:');
-        console.log(err);
-    } else {
-        console.log('The following links were returned:');
-        console.log(links);
-    }
+var linksReturned = function(links) {
+    console.log('The following links were returned:');
+    console.log(links);
 };
 
 
@@ -35,7 +30,20 @@ var keywordsReturned = function(type, keywords) {
     console.log(keywords);
 };
 
+var handleError = function(err) {
+    console.log(err);
+};
+
+var collectivityCompleted = function() {
+    console.log('Process Complete');
+    process.exit();
+};
 
 var recessionCollectivity = new Collectivity(keywords, fbKeys, twitterKeys);
 
-recessionCollectivity.aggregate(linksReturned, keywordsReturned, 10);
+recessionCollectivity.aggregate(10);
+
+recessionCollectivity.on('links', linksReturned);
+recessionCollectivity.on('keywords', keywordsReturned);
+recessionCollectivity.on('error', handleError);
+recessionCollectivity.on('end', collectivityCompleted);
